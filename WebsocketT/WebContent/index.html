@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<input type="text" id="name" />
+<button onclick="sendMessage();">Submit</button>
+<script type="text/javascript">
+
+var webso = new WebSocket("ws://localhost:3001/WebsocketT/SEP");
+webso.onmessage=function display(name)
+{alert(name.data);}
+function sendMessage()
+{
+	webso.send(name);
+	name.value="";
+}
+</script>
+</body>
+</html>
